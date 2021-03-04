@@ -1,0 +1,23 @@
+{
+  "name": "config",
+  "version": "1.0.0",
+  "description": "simple config file format",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SKYCRATE-ltd/config.git"
+  },
+  "author": "Graham Robertson | SKYCRATE ltd",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/SKYCRATE-ltd/config/issues"
+  },
+  "homepage": "https://github.com/SKYCRATE-ltd/config#readme",
+  "dependencies": {
+    "sys": "github:SKYCRATE-ltd/sys"
+  }
+}

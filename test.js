@@ -5,11 +5,11 @@ import {
 
 let conf = read("./test.conf");
 
-console.log(conf);
+console.dir(conf);
 
 let oot = write("./test-out.conf", {
 	message: "Yo",
 	subject: "lo",
 });
 
-console.log(oot);
+console.log('DONE.');

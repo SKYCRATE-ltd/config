@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/SKYCRATE-ltd/config#readme",
   "dependencies": {
-    "sys": "github:SKYCRATE-ltd/sys",
+    "computer": "github:SKYCRATE-ltd/computer",
     "zed": "github:SKYCRATE-ltd/zed"
   }
 }

@@ -1,7 +1,7 @@
 import {
 	readlines,
 	write as write_file
-} from "sys";
+} from "computer";
 
 // We get features without having to import anything in particular.
 import {
@@ -51,8 +51,8 @@ const TYPES = [
 	Double,
 	Boolean,
 	Date,
-	Url,
-	Path,
+	// Url,
+	// Path, // TODO: work on these.. we need one for Null as well...
 	Email,
 	String
 ];
@@ -67,6 +67,9 @@ const Parser = Procedure({
 		};
 	},
 	test(string) {
+		// console.log(
+		// 	this._pattern.toString() +
+		// 		` for "${string}" => ${this._pattern.test(string)}`);
 		return this._pattern.test(string);
 	},
 	extract(string) {
@@ -95,9 +98,10 @@ const PARSERS = [
 
 export function parse(lines) {
 	return Object.fromEntries(new Map(lines.map(
-		(line, index, lines) => OPERATORS[
-			Object.keys(OPERATORS).find(sym => line.includes(sym))
-		](line, index, lines)
+		(line, index, lines) => {
+			const parser = PARSERS.find(parser => parser.test(line));
+			return parser(line, index, lines);
+		}
 	)));
 };
 
@@ -108,5 +112,5 @@ export function read(file) {
 export function write(path, obj) {
 	// Sort the object such that any keys with objects as values are kept to the end.
 	// We don't need it right now though. So, how do we test this sucker then?
-	return write_file(path, Object.entries(obj).map(([key, value]) => `${key}=${stringify(value)}`));
+	return write_file(path, Object.entries(obj).map(([key, value]) => `${key}=${stringify(value)}`).join('\n'));
 };
